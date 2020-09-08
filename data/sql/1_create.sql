@@ -1,0 +1,1 @@
+alter table ucollection modify image varchar(1000);

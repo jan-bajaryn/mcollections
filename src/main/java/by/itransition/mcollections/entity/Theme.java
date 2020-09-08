@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Data
@@ -22,4 +23,7 @@ public class Theme {
 
     @Column(unique = true)
     private String name;
+
+    @OneToMany
+    private List<UCollection> uCollections;
 }
