@@ -20,6 +20,8 @@ public class User {
     @NonNull
     private String password;
 
+    private String email;
+
     @OneToMany
     private List<UCollection> uCollections;
 }

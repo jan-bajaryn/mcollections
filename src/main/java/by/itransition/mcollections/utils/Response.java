@@ -1,19 +1,15 @@
-package by.itransition.mcollections.dto;
+package by.itransition.mcollections.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
-
-    private Integer id;
-    private String username;
-    private String email;
-
+@Builder
+public class Response {
+    private boolean error;
+    private Object data;
 }
