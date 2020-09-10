@@ -17,7 +17,7 @@ public class UserController {
 
     @PostMapping(value = "/sign-up")
     public boolean signUp(@RequestBody User user) {
-        return userService.save(user);
+        return userService.registration(user);
     }
 
 }

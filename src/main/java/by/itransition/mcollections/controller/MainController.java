@@ -26,8 +26,6 @@ public class MainController {
     @PostMapping("/create-collection")
     public Response createCollection(@RequestParam(name = "name") String name,
                                      @RequestParam(name = "description") String description
-//            ,
-//                                   @RequestParam(name = "")
     ) {
         return Response.builder().error(false).build();
     }
