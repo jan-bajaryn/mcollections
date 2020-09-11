@@ -7,6 +7,7 @@ import by.itransition.mcollections.mapper.UserMapper;
 import by.itransition.mcollections.service.UcollectionService;
 import by.itransition.mcollections.utils.Response;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "http://localhost:3000")
+@PreAuthorize(value = "hasAuthority('CLIENT')")
 public class MainController {
 
     private final UcollectionService ucollectionService;
