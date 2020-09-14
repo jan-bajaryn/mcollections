@@ -3,6 +3,7 @@ package by.itransition.mcollections.controller;
 import by.itransition.mcollections.entity.User;
 import by.itransition.mcollections.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
