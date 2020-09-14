@@ -1,5 +1,6 @@
 package by.itransition.mcollections.config;
 
+import by.itransition.mcollections.config.JwtTokenUtil;
 import by.itransition.mcollections.service.JwtUserDetailsService;
 import io.jsonwebtoken.ExpiredJwtException;
 import org.springframework.beans.factory.annotation.Autowired;

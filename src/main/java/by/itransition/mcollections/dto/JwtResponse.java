@@ -1,4 +1,4 @@
-package by.itransition.mcollections.model;
+package by.itransition.mcollections.dto;
 
 import java.io.Serializable;
 
