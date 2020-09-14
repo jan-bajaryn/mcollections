@@ -1,7 +1,7 @@
 package by.itransition.mcollections.entity;
 
+import by.itransition.mcollections.entity.ucollection.UCollection;
 import lombok.*;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -30,7 +30,7 @@ public class User implements UserDetails {
     @Enumerated(value = EnumType.ORDINAL)
     private Role role;
 
-    @OneToMany
+    @OneToMany(mappedBy = "author")
     private List<UCollection> uCollections;
 
     @Override

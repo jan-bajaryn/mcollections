@@ -2,7 +2,7 @@ package by.itransition.mcollections.controller;
 
 
 import by.itransition.mcollections.config.JwtTokenUtil;
-import by.itransition.mcollections.dto.JwtRequest;
+import by.itransition.mcollections.dto.reqbody.JwtRequest;
 import by.itransition.mcollections.dto.JwtResponse;
 import by.itransition.mcollections.service.JwtUserDetailsService;
 import lombok.RequiredArgsConstructor;

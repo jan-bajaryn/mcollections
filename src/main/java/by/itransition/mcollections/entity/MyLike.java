@@ -1,6 +1,7 @@
 package by.itransition.mcollections.entity;
 
 
+import by.itransition.mcollections.entity.ucollection.Item;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Like {
+public class MyLike {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

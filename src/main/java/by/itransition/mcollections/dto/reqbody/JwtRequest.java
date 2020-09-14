@@ -1,4 +1,4 @@
-package by.itransition.mcollections.dto;
+package by.itransition.mcollections.dto.reqbody;
 
 import java.io.Serializable;
 

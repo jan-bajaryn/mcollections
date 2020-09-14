@@ -3,9 +3,9 @@ package by.itransition.mcollections.mapper;
 import by.itransition.mcollections.dto.ShowCollectionDto;
 import by.itransition.mcollections.dto.UcollectionDto;
 import by.itransition.mcollections.dto.reqbody.UcollectionForCreate;
-import by.itransition.mcollections.entity.UCollection;
+import by.itransition.mcollections.entity.ucollection.UCollection;
+import by.itransition.mcollections.entity.ucollection.names.*;
 import by.itransition.mcollections.repos.ThemeRepo;
-import by.itransition.mcollections.repos.UCollectionRepo;
 import org.mapstruct.AfterMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -33,31 +33,34 @@ public abstract class UcollectionMapper {
     protected void setPhones(UCollection from, @MappingTarget ShowCollectionDto.ShowCollectionDtoBuilder to) {
         ArrayList<String> rowNames = new ArrayList<>();
         to.rowNames(rowNames);
-
-        System.out.println("from = " + from);
-        System.out.println("to = " + to);
-
-        addValueIfNotEmpty(from.getBool1Name(), rowNames);
-        addValueIfNotEmpty(from.getBool2Name(), rowNames);
-        addValueIfNotEmpty(from.getBool3Name(), rowNames);
-        addValueIfNotEmpty(from.getInt1Name(), rowNames);
-        addValueIfNotEmpty(from.getInt2Name(), rowNames);
-        addValueIfNotEmpty(from.getInt3Name(), rowNames);
-        addValueIfNotEmpty(from.getString1Name(), rowNames);
-        addValueIfNotEmpty(from.getString2Name(), rowNames);
-        addValueIfNotEmpty(from.getString3Name(), rowNames);
-        addValueIfNotEmpty(from.getText1Name(), rowNames);
-        addValueIfNotEmpty(from.getText2Name(), rowNames);
-        addValueIfNotEmpty(from.getText3Name(), rowNames);
-        addValueIfNotEmpty(from.getDate1Name(), rowNames);
-        addValueIfNotEmpty(from.getDate2Name(), rowNames);
-        addValueIfNotEmpty(from.getDate3Name(), rowNames);
-
+        boolAndInt(from, rowNames);
+        dateAndString(from, rowNames);
+        text(from, rowNames);
     }
 
-    protected void addValueIfNotEmpty(String value, List<String> list) {
-        if (value != null && !value.isEmpty()) {
-            list.add(value);
+    private void text(UCollection from, ArrayList<String> rowNames) {
+        for (TextFieldName textFieldName : from.getTextFieldNames()) {
+            rowNames.add(textFieldName.getName());
         }
     }
+
+    private void dateAndString(UCollection from, ArrayList<String> rowNames) {
+        for (DateFieldName dateFieldName : from.getDateFieldNames()) {
+            rowNames.add(dateFieldName.getName());
+        }
+
+        for (StringFieldName stringFieldName : from.getStringFieldNames()) {
+            rowNames.add(stringFieldName.getName());
+        }
+    }
+
+    private void boolAndInt(UCollection from, ArrayList<String> rowNames) {
+        for (BoolFieldName boolFieldName : from.getBoolFieldNames()) {
+            rowNames.add(boolFieldName.getName());
+        }
+        for (IntFieldName intFieldName : from.getIntFieldNames()) {
+            rowNames.add(intFieldName.getName());
+        }
+    }
+
 }

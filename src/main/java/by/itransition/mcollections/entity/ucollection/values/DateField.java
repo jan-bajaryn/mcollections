@@ -1,25 +1,30 @@
-package by.itransition.mcollections.entity;
+package by.itransition.mcollections.entity.ucollection.values;
 
 import by.itransition.mcollections.entity.ucollection.Item;
+import by.itransition.mcollections.entity.ucollection.names.BoolFieldName;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Entity
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Tag {
+public class DateField {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    private List<Item> item;
+    @ManyToOne
+    private DateField dateField;
+
+    private LocalDateTime value;
+
+    @ManyToOne
+    private Item item;
+
 }

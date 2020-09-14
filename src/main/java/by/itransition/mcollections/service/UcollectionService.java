@@ -3,7 +3,7 @@ package by.itransition.mcollections.service;
 import by.itransition.mcollections.dto.ShowCollectionDto;
 import by.itransition.mcollections.dto.UcollectionDto;
 import by.itransition.mcollections.dto.reqbody.UcollectionForCreate;
-import by.itransition.mcollections.entity.UCollection;
+import by.itransition.mcollections.entity.ucollection.UCollection;
 import by.itransition.mcollections.entity.User;
 import by.itransition.mcollections.mapper.UcollectionMapper;
 import by.itransition.mcollections.repos.UCollectionRepo;
