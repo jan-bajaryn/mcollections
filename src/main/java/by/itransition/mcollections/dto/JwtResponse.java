@@ -1,17 +1,14 @@
 package by.itransition.mcollections.dto;
 
-import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import org.springframework.security.core.GrantedAuthority;
 
-public class JwtResponse implements Serializable
-{
+import java.util.Collection;
 
-    private final String jwttoken;
-
-    public JwtResponse(String jwttoken) {
-        this.jwttoken = jwttoken;
-    }
-
-    public String getToken() {
-        return this.jwttoken;
-    }
+@AllArgsConstructor
+@Data
+public class JwtResponse {
+    private final String token;
+    private final Collection<? extends GrantedAuthority> authorities;
 }
