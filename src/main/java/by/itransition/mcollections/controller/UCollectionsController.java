@@ -1,6 +1,7 @@
 package by.itransition.mcollections.controller;
 
 import by.itransition.mcollections.dto.ShowCollectionDto;
+import by.itransition.mcollections.dto.columninfo.UcollColumnInfo;
 import by.itransition.mcollections.dto.reqbody.UcollectionForCreate;
 import by.itransition.mcollections.entity.User;
 import by.itransition.mcollections.service.UcollectionService;
@@ -27,6 +28,11 @@ public class UCollectionsController {
     @GetMapping("/collection/{id}")
     public ShowCollectionDto collectionId(@PathVariable(name = "id") Integer id) {
         return ucollectionService.showCollectionById(id);
+    }
+
+    @GetMapping("/collection/columns/{id}")
+    public UcollColumnInfo collectionColumnsId(@PathVariable(name = "id") Integer id) {
+        return ucollectionService.columnInfoById(id);
     }
 
 }
