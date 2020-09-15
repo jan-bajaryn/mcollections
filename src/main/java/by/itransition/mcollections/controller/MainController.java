@@ -23,7 +23,9 @@ public class MainController {
     @GetMapping("/all-collections")
     @PreAuthorize(value = "hasAuthority('CLIENT')")
     public List<UcollectionDto> allCollections() {
-        return ucollectionService.findAll();
+        List<UcollectionDto> all = ucollectionService.findAll();
+        System.out.println("all = " + all);
+        return all;
     }
 
     @GetMapping("/all-themes")

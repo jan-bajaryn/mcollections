@@ -30,7 +30,7 @@ public class User implements UserDetails {
     @Enumerated(value = EnumType.ORDINAL)
     private Role role;
 
-    @OneToMany(mappedBy = "author")
+    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
     private List<UCollection> uCollections;
 
     @Override

@@ -19,8 +19,8 @@ public class UcollectionDto {
     private String description;
     private String image;
 
-    private User author;
+//    private User author;
 
-    private Theme theme;
+//    private Theme theme;
 
 }

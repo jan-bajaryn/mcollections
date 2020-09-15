@@ -14,6 +14,7 @@ import org.mapstruct.factory.Mappers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Mapper(componentModel = "spring", uses = {ThemeRepo.class, UserMapper.class})
 public abstract class UcollectionMapper {
@@ -22,9 +23,24 @@ public abstract class UcollectionMapper {
 
     public abstract List<UcollectionDto> toUcollectionDtoList(List<UCollection> uCollections);
 
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "author", ignore = true)
+    @Mapping(target = "boolFieldNames", ignore = true)
+    @Mapping(target = "stringFieldNames", ignore = true)
+    @Mapping(target = "dateFieldNames", ignore = true)
+    @Mapping(target = "textFieldNames", ignore = true)
+    @Mapping(target = "intFieldNames", ignore = true)
     @Mapping(target = "theme", source = "themeId")
     public abstract UCollection toUcollection(UcollectionForCreate ucollection);
 
+    @AfterMapping
+    protected void afterToUcollection(UcollectionForCreate from, @MappingTarget UCollection.UCollectionBuilder to) {
+        to.boolFieldNames(from.getBoolFieldNames().stream().map(p -> BoolFieldName.builder().name(p).build()).collect(Collectors.toList()));
+        to.dateFieldNames(from.getDateFieldNames().stream().map(p -> DateFieldName.builder().name(p).build()).collect(Collectors.toList()));
+        to.textFieldNames(from.getTextFieldNames().stream().map(p -> TextFieldName.builder().name(p).build()).collect(Collectors.toList()));
+        to.intFieldNames(from.getIntFieldNames().stream().map(p -> IntFieldName.builder().name(p).build()).collect(Collectors.toList()));
+        to.stringFieldNames(from.getStringFieldNames().stream().map(p -> StringFieldName.builder().name(p).build()).collect(Collectors.toList()));
+    }
 
     @Mapping(target = "rowNames", ignore = true)
     public abstract ShowCollectionDto toShowCollection(UCollection uCollection);

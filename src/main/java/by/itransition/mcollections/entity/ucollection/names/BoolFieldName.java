@@ -2,9 +2,7 @@ package by.itransition.mcollections.entity.ucollection.names;
 
 import by.itransition.mcollections.entity.ucollection.UCollection;
 import by.itransition.mcollections.entity.ucollection.values.BoolField;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -13,6 +11,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class BoolFieldName {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

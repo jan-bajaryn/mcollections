@@ -14,10 +14,10 @@ public class UcollectionForCreate {
     private String image;
     private Integer themeId;
 
-    private List<BoolFieldName> boolFieldNames;
-    private List<DateFieldName> dateFieldNames;
-    private List<IntFieldName> intFieldNames;
-    private List<StringFieldName> stringFieldNames;
-    private List<TextFieldName> textFieldNames;
+    private List<String> boolFieldNames;
+    private List<String> dateFieldNames;
+    private List<String> intFieldNames;
+    private List<String> stringFieldNames;
+    private List<String> textFieldNames;
 
 }

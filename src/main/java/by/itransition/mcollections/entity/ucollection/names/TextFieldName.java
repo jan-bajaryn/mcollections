@@ -3,6 +3,7 @@ import by.itransition.mcollections.entity.ucollection.UCollection;
 import by.itransition.mcollections.entity.ucollection.values.BoolField;
 import by.itransition.mcollections.entity.ucollection.values.TextField;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TextFieldName {
 
     @Id
