@@ -1,5 +1,6 @@
 package by.itransition.mcollections.dto.reqbody;
 
+import by.itransition.mcollections.dto.reqbody.fields.FieldDto;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -11,9 +12,10 @@ public class ItemCreate {
     private Integer collectionId;
     private String name;
     private List<String> tags;
-    private Map<Integer, Boolean> boolFields;
-    private Map<Integer, LocalDateTime> dateFields;
-    private Map<Integer, Integer> intFields;
-    private Map<Integer, String> stringFields;
-    private Map<Integer, String> textFields;
+
+    private List<FieldDto<Boolean>> boolFields;
+    private List<FieldDto<LocalDateTime>> dateFields;
+    private List<FieldDto<Integer>> intFields;
+    private List<FieldDto<String>> stringFields;
+    private List<FieldDto<String>> textFields;
 }
