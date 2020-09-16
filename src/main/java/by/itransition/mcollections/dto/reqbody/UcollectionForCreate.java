@@ -5,7 +5,6 @@ import lombok.Data;
 
 import java.util.List;
 
-//TODO разобраться с переносом с view
 @Data
 public class UcollectionForCreate {
 
