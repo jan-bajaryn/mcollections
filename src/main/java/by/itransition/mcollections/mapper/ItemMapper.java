@@ -2,6 +2,7 @@ package by.itransition.mcollections.mapper;
 
 import by.itransition.mcollections.dto.CollectionItem;
 import by.itransition.mcollections.dto.ShowFieldDto;
+import by.itransition.mcollections.dto.ShowSingleItemDto;
 import by.itransition.mcollections.dto.reqbody.fields.FieldDto;
 import by.itransition.mcollections.entity.Tag;
 import by.itransition.mcollections.entity.ucollection.Item;
@@ -22,6 +23,21 @@ public interface ItemMapper {
         return items.stream()
                 .map(this::toUcollectionItem)
                 .collect(Collectors.toList());
+    }
+
+    default ShowSingleItemDto toShowSingleItemDto(Item item) {
+        return ShowSingleItemDto.builder()
+                .collectionId(item.getUCollection().getId())
+                .image(item.getUCollection().getImage())
+                .id(item.getId())
+                .tags(tags(item.getTags()))
+                .name(item.getName())
+                .boolFields(boolFields(item))
+                .dateFields(dateFields(item))
+                .stringFields(stringFields(item))
+                .textFields(textFields(item))
+                .intFields(intFields(item))
+                .build();
     }
 
     default CollectionItem toUcollectionItem(Item item) {

@@ -1,5 +1,6 @@
 package by.itransition.mcollections.service;
 
+import by.itransition.mcollections.dto.ShowSingleItemDto;
 import by.itransition.mcollections.dto.reqbody.ItemCreate;
 import by.itransition.mcollections.dto.reqbody.fields.FieldDto;
 import by.itransition.mcollections.entity.Tag;
@@ -7,6 +8,7 @@ import by.itransition.mcollections.entity.ucollection.Item;
 import by.itransition.mcollections.entity.ucollection.UCollection;
 import by.itransition.mcollections.entity.ucollection.names.*;
 import by.itransition.mcollections.entity.ucollection.values.*;
+import by.itransition.mcollections.mapper.ItemMapper;
 import by.itransition.mcollections.repos.ItemRepo;
 import by.itransition.mcollections.service.fields.names.*;
 import by.itransition.mcollections.service.fields.values.*;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,6 +39,8 @@ public class ItemService {
     private final DateFieldNameService dateFieldNameService;
     private final IntFieldService intFieldService;
     private final IntFieldNameService intFieldNameService;
+
+    private final ItemMapper itemMapper;
 
 
     public boolean create(ItemCreate itemCreate) {
@@ -173,4 +178,8 @@ public class ItemService {
     }
 
 
+    public ShowSingleItemDto showSingleById(Integer id) {
+        Optional<Item> byId = itemRepo.findById(id);
+        return byId.map(itemMapper::toShowSingleItemDto).orElse(null);
+    }
 }
