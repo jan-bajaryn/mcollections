@@ -1,19 +1,23 @@
 package by.itransition.mcollections.service;
 
+import by.itransition.mcollections.dto.CollectionItem;
 import by.itransition.mcollections.dto.ShowCollectionDto;
 import by.itransition.mcollections.dto.UcollectionDto;
 import by.itransition.mcollections.dto.columninfo.ColumnInfo;
 import by.itransition.mcollections.dto.columninfo.UcollColumnInfo;
 import by.itransition.mcollections.dto.reqbody.UcollectionForCreate;
 import by.itransition.mcollections.entity.User;
+import by.itransition.mcollections.entity.ucollection.Item;
 import by.itransition.mcollections.entity.ucollection.UCollection;
 import by.itransition.mcollections.entity.ucollection.names.*;
+import by.itransition.mcollections.mapper.ItemMapper;
 import by.itransition.mcollections.mapper.UcollectionMapper;
 import by.itransition.mcollections.repos.UCollectionRepo;
 import by.itransition.mcollections.service.fields.names.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -24,6 +28,7 @@ public class UcollectionService {
 
     private final UCollectionRepo uCollectionRepo;
     private final UcollectionMapper ucollectionMapper;
+    private final ItemMapper itemMapper;
 
     private final BoolFieldNameService boolFieldNameService;
     private final IntFieldNameService intFieldNameService;
@@ -152,5 +157,15 @@ public class UcollectionService {
                         .map(k -> ColumnInfo.builder().id(k.getId()).name(k.getName()).build())
                         .collect(Collectors.toList())
         );
+    }
+
+    public List<CollectionItem> showItemsById(Integer id) {
+        Optional<UCollection> byId = uCollectionRepo.findById(id);
+        if(byId.isPresent()) {
+            UCollection uCollection = byId.get();
+            List<Item> items = uCollection.getItems();
+            return itemMapper.toCollectionItems(items);
+        }
+        return new ArrayList<>();
     }
 }

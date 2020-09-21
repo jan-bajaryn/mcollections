@@ -2,7 +2,9 @@ package by.itransition.mcollections.entity.ucollection.values;
 
 import by.itransition.mcollections.entity.ucollection.Item;
 import by.itransition.mcollections.entity.ucollection.names.BoolFieldName;
+import by.itransition.mcollections.entity.ucollection.names.DateFieldName;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +15,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class DateField {
 
     @Id
@@ -20,7 +23,7 @@ public class DateField {
     private Integer id;
 
     @ManyToOne
-    private DateField dateField;
+    private DateFieldName dateFieldName;
 
     private LocalDateTime value;
 

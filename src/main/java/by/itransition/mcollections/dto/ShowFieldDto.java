@@ -1,4 +1,4 @@
-package by.itransition.mcollections.dto.reqbody.fields;
+package by.itransition.mcollections.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FieldDto<T> {
-    private Integer nameId;
+public class ShowFieldDto<T> {
+    private String name;
     private T value;
 }

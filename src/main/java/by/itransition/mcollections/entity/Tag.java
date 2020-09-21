@@ -24,6 +24,6 @@ public class Tag {
     @NaturalId
     private String name;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "tags")
     private List<Item> item;
 }

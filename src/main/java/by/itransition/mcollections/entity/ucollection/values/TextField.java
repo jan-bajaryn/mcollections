@@ -4,6 +4,7 @@ package by.itransition.mcollections.entity.ucollection.values;
 import by.itransition.mcollections.entity.ucollection.Item;
 import by.itransition.mcollections.entity.ucollection.names.TextFieldName;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 public class TextField {
 
     @Id

@@ -28,7 +28,7 @@ public class DateFieldName {
     @ManyToOne
     private UCollection uCollection;
 
-    @OneToMany(mappedBy = "dateField")
+    @OneToMany(mappedBy = "dateFieldName")
     private List<DateField> fields;
 
 }

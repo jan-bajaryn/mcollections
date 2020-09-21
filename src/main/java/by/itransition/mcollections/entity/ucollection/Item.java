@@ -24,7 +24,10 @@ public class Item {
 
     private String name;
 
-    @ManyToMany(mappedBy = "item")
+    @ManyToOne
+    private UCollection uCollection;
+
+    @ManyToMany
     private List<Tag> tags;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "item")

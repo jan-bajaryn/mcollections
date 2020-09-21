@@ -1,5 +1,6 @@
 package by.itransition.mcollections.controller;
 
+import by.itransition.mcollections.dto.CollectionItem;
 import by.itransition.mcollections.dto.ShowCollectionDto;
 import by.itransition.mcollections.dto.columninfo.UcollColumnInfo;
 import by.itransition.mcollections.dto.reqbody.UcollectionForCreate;
@@ -9,6 +10,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -33,6 +36,11 @@ public class UCollectionsController {
     @GetMapping("/collection/columns/{id}")
     public UcollColumnInfo collectionColumnsId(@PathVariable(name = "id") Integer id) {
         return ucollectionService.columnInfoById(id);
+    }
+
+    @GetMapping("/collection/items/{id}")
+    public List<CollectionItem> collectionItems(@PathVariable(name = "id") Integer id) {
+        return ucollectionService.showItemsById(id);
     }
 
 }

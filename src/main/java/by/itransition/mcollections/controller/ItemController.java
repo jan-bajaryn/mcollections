@@ -21,10 +21,6 @@ public class ItemController {
 
     @PostMapping("/item/create")
     public boolean itemCreate(@RequestBody ItemCreate itemCreate) {
-        System.out.println("itemCreate = " + itemCreate);
-        System.out.println("itemCreate.getIntFields().size() = " + itemCreate.getIntFields().size());
-        log.debug("itemCreate = {}", itemCreate);
-        return true;
-//        return itemService.create(itemCreate);
+        return itemService.create(itemCreate);
     }
 }

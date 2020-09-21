@@ -29,6 +29,9 @@ public class UCollection {
 
     private String image;
 
+    @OneToMany(mappedBy = "uCollection")
+    private List<Item> items;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
@@ -37,33 +40,27 @@ public class UCollection {
     @ManyToOne(fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private Theme theme;
 
     @OneToMany(mappedBy = "uCollection")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<BoolFieldName> boolFieldNames;
     @OneToMany(mappedBy = "uCollection")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<DateFieldName> dateFieldNames;
     @OneToMany(mappedBy = "uCollection")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<IntFieldName> intFieldNames;
     @OneToMany(mappedBy = "uCollection")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<StringFieldName> stringFieldNames;
     @OneToMany(mappedBy = "uCollection")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     private List<TextFieldName> textFieldNames;
 
 }
